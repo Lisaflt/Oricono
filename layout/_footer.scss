@@ -1,1 +1,13 @@
-_footer.scss
+footer {
+	background-color: #100f0fc9;
+	margin-top: 20px;
+	font-family: "Montserrat";
+	font-size: 20px;
+	position: fixed;
+	width: 100%;
+	height: 50px;
+	bottom: 0px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
