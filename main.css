@@ -1,0 +1,103 @@
+header {
+  background-color: #100f0fc9;
+  width: 100%;
+  text-align: center;
+  font-family: "Montserrat";
+  color: white;
+}
+
+footer {
+  background-color: #100f0fc9;
+  margin-top: 20px;
+  font-family: "Montserrat";
+  font-size: 20px;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  bottom: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body {
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+h1 {
+  font-family: "Knewave";
+}
+
+nav {
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+section {
+  padding: 60px;
+}
+
+h2 {
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 40px;
+}
+
+article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+  border: solid white;
+  -webkit-box-shadow: 1px 1px 15px #c3bec359;
+          box-shadow: 1px 1px 15px #c3bec359;
+}
+
+.infos {
+  padding-left: 10px;
+}
+
+button {
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  width: 48%;
+  border-radius: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+}
+
+.sectionPage2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+aside {
+  width: 100%;
+}
+/*# sourceMappingURL=main.css.map */
