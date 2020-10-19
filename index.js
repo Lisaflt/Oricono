@@ -19,7 +19,7 @@ fetch("http://localhost:3000/api/teddies")
 			img.src = ourson.imageUrl;
 			h1.innerHTML = `${ourson.name}`;
 			p.innerHTML = `${ourson.description} `;
-			span.innerHTML = `${ourson.price} `;
+			span.innerHTML = `${ourson.price} ` + "€";
 
 			const btn = document.createElement("button"); // création du bouton
 			btn.textContent = "plus d'informations...";
