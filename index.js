@@ -5,36 +5,51 @@ function createNode(element) {
 function append(parent, el) {
 	return parent.appendChild(el);
 }
-// APPEL A L'API
+
 fetch("http://localhost:3000/api/teddies")
 	.then((resp) => resp.json())
 	.then(function (data) {
-		let container = document.getElementById("oursons");
 		data.forEach(function (ourson) {
-			let article = createNode("article"),
-				img = createNode("img"),
-				h1 = createNode("h1"),
-				p = createNode("p"),
-				span = createNode("span");
-			img.src = ourson.imageUrl;
-			h1.innerHTML = `${ourson.name}`;
-			p.innerHTML = `${ourson.description} `;
-			span.innerHTML = `${ourson.price} ` + "€";
+			let container = document.getElementById("oursons");
+			let article = createNode("article");
+
+			let para = document.createElement("h2");
+			para.className = "essai";
+			para.textContent = `${ourson.name}`;
+			append(article, para);
+			append(container, article);
+
+			let description = document.createElement("p");
+			description.className = "essai2";
+			description.textContent = `${ourson.description}`;
+			append(article, description);
+			append(container, article);
+
+			let colors = document.createElement("p");
+			colors.className = "essai2-2";
+			colors.textContent = `${ourson.colors}`;
+			append(article, colors);
+			append(container, article);
+
+			let price = document.createElement("span");
+			price.className = "essai3";
+			let euros = "euros";
+			price.textContent = `${ourson.price} ` + euros;
+			append(article, price);
+			append(container, article);
+
+			let image = document.createElement("img");
+			image.className = "essai4";
+			image.src = ourson.imageUrl;
+			append(article, image);
+			append(container, article);
 
 			const btn = document.createElement("button"); // création du bouton
 			btn.textContent = "plus d'informations...";
-			btn.addEventListener("click", function () {
-				location = "produit.html?id=5be9c8541c9d440000665243";
-			});
-
-			append(article, img);
-			append(article, h1);
-			append(article, p);
-			append(article, span);
 			append(article, btn);
 			append(container, article);
+			btn.addEventListener("click", function () {
+				location = "produit.html?id=" + ourson._id;
+			});
 		});
-	})
-	.catch(function (error) {
-		console.log(error);
 	});
