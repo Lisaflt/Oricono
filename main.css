@@ -84,6 +84,11 @@ button {
 	padding: 8px;
 }
 
+select {
+	padding: 3px;
+	border-radius: 5px;
+}
+
 button:hover {
 	transform: scale(1.1);
 	transition: transform 600ms ease-in-out;
@@ -94,10 +99,45 @@ img {
 	margin-top: 20px;
 }
 
-.price {
-	margin-top: 20px;
+.prix {
+	margin-top: 30px;
 }
 
 .mySelect {
 	margin-bottom: 20px;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	width: 300px;
+	/* Encadré pour voir les limites du formulaire */
+	padding: 1em;
+	border: 1px solid #0a0a0a;
+	border-radius: 1em;
+	background-color: #e4e4e4;
+}
+
+input {
+	width: 80%;
+	padding: 5px;
+	margin-top: 8px;
+	border: #e4e4e4;
+}
+label {
+	display: inline-block;
+	text-align: left;
+}
+
+#bouton_envoi {
+	background-color: black;
+	color: white;
+	width: 100%;
+	padding: 10px;
+}
+
+.formH2 {
+	font-family: "Montserrat";
+	text-align: center;
 }

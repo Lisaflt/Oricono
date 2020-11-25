@@ -33,7 +33,7 @@ fetch("http://localhost:3000/api/teddies/" + id).then(function (response) {
 
 		let colors = document.createElement("p");
 		colors.className = "colors";
-		colors.textContent = " Couleur : ";
+		colors.textContent = "Choix de la couleur : ";
 		append(article, colors);
 		append(container, article);
 	});

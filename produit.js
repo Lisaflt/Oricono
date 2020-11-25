@@ -52,6 +52,7 @@ fetch("http://localhost:3000/api/teddies/" + id)
 				selectList.appendChild(option);
 			}
 
+			// création d'un paragraphe pour spécifier la quantité
 			let quantite = document.createElement("p");
 			quantite.textContent = "Choix de la quantité : ";
 			append(article, quantite);
@@ -68,6 +69,20 @@ fetch("http://localhost:3000/api/teddies/" + id)
 				colorChoice = mySelect.value;
 				console.log(colorChoice);
 			});
+
+			// ajout d'une classe pour sélectionner la quantité
+			let qtChoice = "";
+			let mySelect2 = document.querySelector(".toto");
+			mySelect2.addEventListener("change", (event) => {
+				qtChoice = mySelect2.value;
+				console.log(qtChoice);
+			});
+
+			let prix = document.createElement("p");
+			prix.className = "prix";
+			prix.textContent = "Prix : ";
+			append(article, prix);
+			append(container, article);
 
 			let price = document.createElement("span");
 			price.className = "price";
@@ -87,16 +102,35 @@ fetch("http://localhost:3000/api/teddies/" + id)
 			append(article, btn);
 			append(container, article);
 			btn.addEventListener("click", function () {
-				location = "panier.html?id=" + ourson._id + "&color=" + colorChoice;
+				location =
+					"panier.html?id=" + ourson._id + "&color=" + colorChoice + qtChoice;
 			});
 		});
 	})
 
 	.then(console.log);
 
-// const btn = document.createElement("button"); // création du bouton
-// 		btn.textContent = "plus d'informations...";
-// 		append(article, btn);
-// 		append(container, article);
-// 		btn.addEventListener("click", function () {
-// 			location = "panier.html?id=" + ourson._id;
+let lines = [];
+if (sessionStorage.getItem("cart")) {
+	lines = JSON.parse(sessionsStorage.getItem("cart"));
+}
+
+function save() {
+	sessionStorage.setItem("cart", JSON.stringify(lines));
+}
+
+function add(product, color, quantity) {
+	let item = this.lines.find(
+		(item) => item.product.id === product.id && item.color === color
+	);
+	if (typeof item === "undefined") {
+		lines.push({
+			product,
+			color,
+			quantity,
+		});
+	} else {
+		item.quantity += quantity;
+	}
+	save();
+}

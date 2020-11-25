@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="main.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Satisfy&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<header>
+			<h1>Oricono</h1>
+			<nav>
+				<p>Home</p>
+				<p>Panier</p>
+				<p>Contact</p>
+			</nav>
+		</header>
+        <main id="oursons"></main>
+        
+        <h2 class="formH2"> Formulaire de contact</h2>
+		     <form method="post">
+
+            <label for='prenom'>Prénom  </label>
+            <input type='text' name='prenom' id='prenom' maxlength='20' required>
+            <span id='missPrenom'></span><br>
+
+            <label for='nom'>Nom </label>
+            <input type='text' name='nom' id='nom' maxlength='20' required>
+            <span id='missNom'></span><br>
+
+            <label for='adresse'>Adresse  </label>
+            <input type='text' name='adresse' id='adresse' required>
+            <span id='missAdresse'></span><br>
+
+             <label for='code postal'>Code Postal  </label>
+            <input type='text' name='codepostal' id='codepostal' maxlength='20' required>
+            <span id='missCodePostal'></span><br>
+
+             <label for='ville'>Ville  </label>
+            <input type='text' name='ville' id='ville' maxlength='20' required>
+            <span id='missVille'></span><br>
+            
+            <label for='mail'>Entrez votre mail  </label>
+            <input type='email' name='email' id='email' required><br>
+            <span id='missEmail'></span><br>
+            
+            <label for='tel'>Numéro de téléphone :</label>
+            <input type='tel' name='tel' id='tel' required><br>
+             <span id='missTel'></span><br>
+                
+            <input type='submit' value='VALIDER' id='bouton_envoi'>
+        </form>
+			<a href="mentionsL.html">Mentions Légales </a>
+			<a href="mailto:orinoco@contact.com">Contactez-nous </a>
+		</footer>
+		<script src="formulaire.js"></script>
+	</body>
+</html>
