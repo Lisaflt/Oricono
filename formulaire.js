@@ -1,4 +1,7 @@
 var formValid = document.getElementById("bouton_envoi");
+/*formValid = btn.addEventListener("click", function () {
+	location = "produit.html?id=" + ourson._id;
+})*/
 
 var prenom = document.getElementById("prenom");
 var missPrenom = document.getElementById("missPrenom");
@@ -28,7 +31,7 @@ var tel = document.getElementById("tel");
 var missTel = document.getElementById("missTel");
 var telValid = /^(01|02|03|04|05|06|08)[0-9]{8}/;
 
-formValid.addEventListener("click", validation);
+/*formValid.addEventListener("click", validation);*/
 
 function validation(event) {
 	//Si le champ est vide
@@ -103,7 +106,7 @@ function validation(event) {
 		missTel.style.color = "orange";
 	}
 
-	// si le champ EMAIL est vide
+	/*// si le champ EMAIL est vide
 	if (email.validity.valueMissing) {
 		event.preventDefault();
 		missEmail.textContent = "email manquant";
@@ -113,5 +116,46 @@ function validation(event) {
 		event.preventDefault();
 		missEmail.textContent = "Format incorrect";
 		missEmail.style.color = "orange";
-	}
+	}*/
 }
+
+let formContact = document.getElementById("boutonEnvoi");
+
+function stringifyPost() {
+	let firstName = document.querySelector("#prenom").value;
+	let lastName = document.querySelector("#nom").value;
+	let email = document.querySelector("#email").value;
+	let address = document.querySelector("#adresse").value;
+	let codePostal = document.querySelector("#codepostal").value;
+	let city = document.querySelector("#ville").value;
+	let contact = new Object();
+	contact.firstName = firstName;
+	contact.lastName = lastName;
+	contact.email = email;
+	contact.address = address;
+	contact.codePostal = codePostal;
+	contact.city = city;
+
+	let products = ["5be9c8541c9d440000665243"];
+	/*return JSON.stringify(contact, products);*/
+
+	let order = new Object();
+	order.contact = contact;
+	order.products = products;
+
+	/*let order = [contact, products];*/
+	return JSON.stringify(order);
+}
+
+formContact.addEventListener("click", function (e) {
+	e.preventDefault();
+	fetch("http://localhost:3000/api/teddies/order", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: stringifyPost(),
+	}).then(function (response) {
+		return response.json();
+	});
+});

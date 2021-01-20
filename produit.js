@@ -101,36 +101,36 @@ fetch("http://localhost:3000/api/teddies/" + id)
 			btn.textContent = "Ajouter au panier";
 			append(article, btn);
 			append(container, article);
+
+			let lines = [];
+
+			if (sessionStorage.getItem("cart")) {
+				lines = JSON.parse(sessionsStorage.getItem("cart"));
+			}
+
+			function save() {
+				sessionStorage.setItem("cart", JSON.stringify(lines));
+			}
+
+			function add(product, color, quantity) {
+				let item = this.lines.find(
+					(item) => item.product.id === product.id && item.color === color
+				);
+				if (typeof item === "undefined") {
+					lines.push({
+						product,
+						color,
+						quantity,
+					});
+				} else {
+					item.quantity += quantity;
+				}
+				save();
+			}
 			btn.addEventListener("click", function () {
-				location =
-					"panier.html?id=" + ourson._id + "&color=" + colorChoice + qtChoice;
+				add(ourson._id, colorChoice, qtChoice);
 			});
 		});
 	})
 
 	.then(console.log);
-
-let lines = [];
-if (sessionStorage.getItem("cart")) {
-	lines = JSON.parse(sessionsStorage.getItem("cart"));
-}
-
-function save() {
-	sessionStorage.setItem("cart", JSON.stringify(lines));
-}
-
-function add(product, color, quantity) {
-	let item = this.lines.find(
-		(item) => item.product.id === product.id && item.color === color
-	);
-	if (typeof item === "undefined") {
-		lines.push({
-			product,
-			color,
-			quantity,
-		});
-	} else {
-		item.quantity += quantity;
-	}
-	save();
-}

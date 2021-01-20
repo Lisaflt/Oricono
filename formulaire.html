@@ -19,7 +19,7 @@
         <main id="oursons"></main>
         
         <h2 class="formH2"> Formulaire de contact</h2>
-		     <form method="post">
+		     <form method="post" action = "formulaire.html" id ="formData">
 
             <label for='prenom'>Prénom  </label>
             <input type='text' name='prenom' id='prenom' maxlength='20' required>
@@ -42,18 +42,19 @@
             <span id='missVille'></span><br>
             
             <label for='mail'>Entrez votre mail  </label>
-            <input type='email' name='email' id='email' required><br>
+            <input type='email' name='email' id='email'><br>
             <span id='missEmail'></span><br>
             
             <label for='tel'>Numéro de téléphone :</label>
             <input type='tel' name='tel' id='tel' required><br>
              <span id='missTel'></span><br>
                 
-            <input type='submit' value='VALIDER' id='bouton_envoi'>
+            <input type='submit' value='VALIDER' id='boutonEnvoi'>
         </form>
 			<a href="mentionsL.html">Mentions Légales </a>
 			<a href="mailto:orinoco@contact.com">Contactez-nous </a>
 		</footer>
-		<script src="formulaire.js"></script>
+        <script src="formulaire.js"></script>
+       
 	</body>
 </html>
